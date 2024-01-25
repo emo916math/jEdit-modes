@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- -->
+<MODE>
+    <PROPS>
+        <PROPERTY NAME="commentStart" VALUE="/*" />
+        <PROPERTY NAME="commentEnd" VALUE="*/" />
+        <PROPERTY NAME="lineComment" VALUE="//" />
+        <PROPERTY NAME="indentOpenBrackets" VALUE="{[(&lt;" />
+        <PROPERTY NAME="indentCloseBrackets" VALUE="}])&gt;" />
+        <PROPERTY NAME="indentNextLines"
+        VALUE=".*(do|then|else|try)\s*$|\s*(function|procedure|intrinsic|repeat|catch).*" />
+        <PROPERTY NAME="unindentThisLine"
+        VALUE="\s*(else|catch .*|until|until .*|elif|elif .*|end [a-z]*;)" />
+        <PROPERTY NAME="unindentNextLines"
+        VALUE="\s*(else|catch .*|until|until .*|elif|elif .*|end [a-z]*;)" />
+		<PROPERTY NAME="electricKeys" VALUE=";ehf" />
+    </PROPS>
+
+    <RULES IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE">
+        
+
+        <!-- Comments -->
+        <EOL_SPAN TYPE="COMMENT2">//</EOL_SPAN>
+        
+        <SPAN TYPE="COMMENT1">
+          <BEGIN>/*</BEGIN>
+          <END>*/</END>
+        </SPAN>
+
+        <SPAN TYPE="LITERAL1" DELEGATE="DOUBLEQUOTE_LITERAL" NO_LINE_BREAK="TRUE">
+          <BEGIN>"</BEGIN>
+          <END>"</END>
+        </SPAN>
+          <SPAN TYPE="LITERAL3" DELEGATE="SIMPLEQUOTE_LITERAL" NO_LINE_BREAK="TRUE">
+          <BEGIN>'</BEGIN>
+          <END>'</END>
+        </SPAN>
+
+        <SEQ TYPE="OPERATOR">]</SEQ>
+        <SEQ TYPE="OPERATOR">[</SEQ>
+        <SEQ TYPE="KEYWORD1">..</SEQ>
+        <SEQ TYPE="OPERATOR">.</SEQ>
+        <SEQ TYPE="OPERATOR">,</SEQ>
+        <SEQ TYPE="OPERATOR">!</SEQ>
+        <SEQ TYPE="OPERATOR">^</SEQ>
+        <SEQ TYPE="OPERATOR">~</SEQ>
+        <SEQ TYPE="OPERATOR">@</SEQ>
+        <SEQ TYPE="OPERATOR">#</SEQ>
+        <SEQ TYPE="OPERATOR">:=</SEQ>
+        <SEQ TYPE="OPERATOR">:</SEQ>
+        <SEQ TYPE="OPERATOR">=</SEQ>
+        <SEQ TYPE="OPERATOR">&gt;</SEQ>
+        <SEQ TYPE="OPERATOR">&lt;</SEQ>
+        <SEQ TYPE="OPERATOR">+</SEQ>
+        <SEQ TYPE="OPERATOR">-</SEQ>
+        <SEQ TYPE="OPERATOR">/</SEQ>
+        <SEQ TYPE="OPERATOR">*</SEQ>
+        
+        <!-- Function calls -->
+        <MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
+        <SEQ TYPE="OPERATOR">)</SEQ>
+
+        <KEYWORDS>
+            <KEYWORD1>array</KEYWORD1>
+            <KEYWORD1>assert</KEYWORD1>
+            <KEYWORD1>assert2</KEYWORD1>
+            <KEYWORD1>assert3</KEYWORD1>
+            <KEYWORD1>at</KEYWORD1>
+            <KEYWORD1>assigned</KEYWORD1>
+            <KEYWORD1>begin</KEYWORD1>
+            <KEYWORD1>break</KEYWORD1>
+            <KEYWORD1>by</KEYWORD1>
+            <KEYWORD1>case</KEYWORD1>
+            <KEYWORD1>catch</KEYWORD1>
+            <KEYWORD1>class</KEYWORD1>
+            <KEYWORD1>const</KEYWORD1>
+            <KEYWORD1>continue</KEYWORD1>
+            <KEYWORD1>delete</KEYWORD1>
+            <KEYWORD1>do</KEYWORD1>
+            <KEYWORD1>downto</KEYWORD1>
+            <KEYWORD1>elif</KEYWORD1>
+            <KEYWORD1>else</KEYWORD1>
+            <KEYWORD1>end</KEYWORD1>
+            <KEYWORD1>eval</KEYWORD1>
+            <KEYWORD1>except</KEYWORD1>
+            <KEYWORD1>file</KEYWORD1>
+            <KEYWORD1>final</KEYWORD1>
+            <KEYWORD1>finalization</KEYWORD1>
+            <KEYWORD1>finally</KEYWORD1>
+            <KEYWORD1>for</KEYWORD1>
+            <KEYWORD1>func</KEYWORD1>
+            <KEYWORD1>function</KEYWORD1>
+            <KEYWORD1>goto</KEYWORD1>
+            <KEYWORD1>if</KEYWORD1>
+            <KEYWORD1>implementation</KEYWORD1>
+            <KEYWORD1>inherited</KEYWORD1>
+            <KEYWORD1>initialization</KEYWORD1>
+            <KEYWORD1>inline</KEYWORD1>
+            <KEYWORD1>intrinsic</KEYWORD1>
+            <KEYWORD1>is</KEYWORD1>
+            <KEYWORD1>label</KEYWORD1>
+            <KEYWORD1>object</KEYWORD1>
+            <KEYWORD1>procedure</KEYWORD1>
+            <KEYWORD1>program</KEYWORD1>
+            <KEYWORD1>property</KEYWORD1>
+            <KEYWORD1>repeat</KEYWORD1>
+            <KEYWORD1>return</KEYWORD1>
+            <KEYWORD1>sealed</KEYWORD1>
+            <KEYWORD1>select</KEYWORD1>
+            <KEYWORD1>static</KEYWORD1>
+            <KEYWORD1>string</KEYWORD1>
+            <KEYWORD1>then</KEYWORD1>
+            <KEYWORD1>threadvar</KEYWORD1>
+            <KEYWORD1>to</KEYWORD1>
+            <KEYWORD1>try</KEYWORD1>
+            <KEYWORD1>type</KEYWORD1>
+            <KEYWORD1>unit</KEYWORD1>
+            <KEYWORD1>unsafe</KEYWORD1>
+            <KEYWORD1>until</KEYWORD1>
+            <KEYWORD1>uses</KEYWORD1>
+            <KEYWORD1>var</KEYWORD1>
+            <KEYWORD1>while</KEYWORD1>
+            <KEYWORD1>with</KEYWORD1>
+            
+            <KEYWORD3>eq</KEYWORD3>
+            <KEYWORD3>ne</KEYWORD3>
+            <KEYWORD3>lt</KEYWORD3>
+            <KEYWORD3>le</KEYWORD3>
+            <KEYWORD3>gt</KEYWORD3>
+            <KEYWORD3>ge</KEYWORD3>
+            
+            <KEYWORD3>and</KEYWORD3>
+            <KEYWORD3>or</KEYWORD3>
+            <KEYWORD3>xor</KEYWORD3>
+            <KEYWORD3>not</KEYWORD3>
+            <KEYWORD3>forall</KEYWORD3>
+            <KEYWORD3>exists</KEYWORD3>
+            
+            <KEYWORD3>in</KEYWORD3>
+            <KEYWORD3>notin</KEYWORD3>
+            <KEYWORD3>subset</KEYWORD3>
+            <KEYWORD3>notsubset</KEYWORD3>
+            
+            <KEYWORD3>cat</KEYWORD3>
+            <KEYWORD3>mod</KEYWORD3>
+            <KEYWORD3>div</KEYWORD3>
+            <KEYWORD3>meet</KEYWORD3>
+            <KEYWORD3>join</KEYWORD3>
+            <KEYWORD3>diff</KEYWORD3>
+            <KEYWORD3>sdiff</KEYWORD3>
+            
+            <KEYWORD2>load</KEYWORD2>
+            <KEYWORD2>import</KEYWORD2>
+            <KEYWORD2>require</KEYWORD2>
+            <KEYWORD2>freeze</KEYWORD2>
+            <KEYWORD2>print</KEYWORD2>
+            <KEYWORD2>printf</KEYWORD2>
+            <KEYWORD2>error</KEYWORD2>
+
+            <LITERAL2>false</LITERAL2>
+            <LITERAL2>true</LITERAL2>
+            
+            <LITERAL3>map</LITERAL3>
+            <LITERAL3>hom</LITERAL3>
+            <LITERAL3>sub</LITERAL3>
+            <LITERAL3>quo</LITERAL3>
+            <LITERAL3>ncl</LITERAL3>
+            <LITERAL3>car</LITERAL3>
+            <LITERAL3>rec</LITERAL3>
+        </KEYWORDS>
+    </RULES>
+    
+    <!--{{{ DOUBLEQUOTE_LITERAL rule -->
+	<RULES SET="DOUBLEQUOTE_LITERAL" DEFAULT="LITERAL1" IGNORE_CASE="TRUE">
+		<SEQ TYPE="LITERAL4">\\</SEQ>
+		<SEQ TYPE="LITERAL4">\"</SEQ>
+		<SEQ TYPE="LITERAL4">\n</SEQ>
+		<SEQ TYPE="LITERAL4">\r</SEQ>
+		<SEQ TYPE="LITERAL4">\t</SEQ>
+		<SEQ_REGEXP HASH_CHAR="\u" TYPE="LITERAL4">\\u[a-f\d]{4}</SEQ_REGEXP>
+	</RULES> <!--}}}-->
+	
+	<!--{{{ SIMPLEQUOTE_LITERAL rule -->
+	<RULES SET="SIMPLEQUOTE_LITERAL" DEFAULT="LITERAL3" IGNORE_CASE="TRUE">
+		<SEQ TYPE="LITERAL4">\\</SEQ>
+		<SEQ TYPE="LITERAL4">\'</SEQ>
+		<SEQ TYPE="LITERAL4">\n</SEQ>
+		<SEQ TYPE="LITERAL4">\r</SEQ>
+		<SEQ TYPE="LITERAL4">\t</SEQ>
+		<SEQ_REGEXP HASH_CHAR="\u" TYPE="LITERAL4">\\u[a-f\d]{4}</SEQ_REGEXP>
+	</RULES> <!--}}}-->
+</MODE>
